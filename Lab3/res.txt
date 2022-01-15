@@ -1,0 +1,220 @@
+Current hall:
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOORRRRRRROOOO]
+[OOOOOOOOOOOOOOOORROO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOORRRRRRROOOOOOOO]
+[OOOOOOOOOOOORRRRRRRO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOOOOOOOOOOORR]
+[RRRRRROOOOOOOOOOOOOO]
+Seat bought: 0.
+Сorrect execution.
+Thread-3: want to buy 8 ticket(s): [(8;18)(8;19)(9;0)(9;1)(9;2)(9;3)(9;4)(9;5)] - successful purchase
+Thread-0: want to buy 7 ticket(s): [(5;12)(5;13)(5;14)(5;15)(5;16)(5;17)(5;18)] - successful purchase
+Thread-2: want to buy 7 ticket(s): [(4;5)(4;6)(4;7)(4;8)(4;9)(4;10)(4;11)] - successful purchase
+Thread-1: want to buy 7 ticket(s): [(1;9)(1;10)(1;11)(1;12)(1;13)(1;14)(1;15)] - successful purchase
+Thread-4: want to buy 2 ticket(s): [(2;16)(2;17)] - successful purchase
+Current hall:
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOO*******OOOO]
+[OOOOOOOOOOOOOOOO**OO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOO*******OOOOOOOO]
+[OOOOOOOOOOOO*******O]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOOOOOOOOOOO**]
+[******OOOOOOOOOOOOOO]
+Seat bought: 31.
+Сorrect execution.
+Thread-1: want to buy 9 ticket(s): [(1;17)(1;18)(1;19)(2;0)(2;1)(2;2)(2;3)(2;4)(2;5)] - successful purchase
+Thread-2: want to buy 3 ticket(s): [(6;19)(7;0)(7;1)] - successful purchase
+Thread-0: want to buy 3 ticket(s): [(8;2)(8;3)(8;4)] - successful purchase
+Current hall:
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOOOOOO*******O***]
+[******OOOOOOOOOO**OO]
+[OOOOOOOOOOOOOOOOOOOO]
+[OOOOO*******OOOORRRO]
+[OOOOOOOOOOOO*******O]
+[OOOOOOOOOOOOOOOOOOO*]
+[**OOOOORRRRRRROOOOOO]
+[OO***OOOOOOOOOOOOO**]
+[******OOOOOOOOOOOOOO]
+Seat bought: 46.
+Сorrect execution.
+Thread-3: want to buy 3 ticket(s): [(4;16)(4;17)(4;18)] - successful purchase
+Thread-4: want to buy 7 ticket(s): [(7;7)(7;8)(7;9)(7;10)(7;11)(7;12)(7;13)] - successful purchase
+Current hall:
+[OOOOOOOOOOOOOOOOOOOR]
+[RRRRRROOO*******O***]
+[******RRRRRRRRRR**OO]
+[OOOOOOOOOOOOOOOOOOOO]
+[ORRRR*******OOOO***O]
+[OOOOOOOOOOOO*******R]
+[RRRRRRRRROOOOOOOOOO*]
+[**OOOOO*******OOOOOO]
+[OO***OOOOOOOOOOOOO**]
+[******OOOOOOOOOOOOOO]
+Seat bought: 56.
+Сorrect execution.
+Thread-2: want to buy 10 ticket(s): [(2;6)(2;7)(2;8)(2;9)(2;10)(2;11)(2;12)(2;13)(2;14)(2;15)] - successful purchase
+Thread-1: want to buy 7 ticket(s): [(0;19)(1;0)(1;1)(1;2)(1;3)(1;4)(1;5)] - successful purchase
+Thread-3: want to buy 4 ticket(s): [(4;1)(4;2)(4;3)(4;4)] - successful purchase
+Thread-0: want to buy 10 ticket(s): [(5;19)(6;0)(6;1)(6;2)(6;3)(6;4)(6;5)(6;6)(6;7)(6;8)] - successful purchase
+Thread-4: want to buy 5 ticket(s): [(1;16)(2;18)(2;19)(3;0)(3;1)] - successful purchase
+Current hall:
+[OOOOOOOOORRRRRRRRRR*]
+[******OOO***********]
+[********************]
+[**OOOOOOOOOOOOOOOOOO]
+[O***********OOOO***O]
+[OOOOOOOOOOOO********]
+[*********RRRRRRRRRR*]
+[**OOOOO*******OOOOOO]
+[OO***OOOOOOOOOOOOO**]
+[******OOOOOOOOOOOOOO]
+Seat bought: 92.
+Сorrect execution.
+Thread-3: want to buy 10 ticket(s): [(0;9)(0;10)(0;11)(0;12)(0;13)(0;14)(0;15)(0;16)(0;17)(0;18)] - successful purchase
+Thread-2: want to buy 10 ticket(s): [(6;9)(6;10)(6;11)(6;12)(6;13)(6;14)(6;15)(6;16)(6;17)(6;18)] - successful purchase
+Thread-1: want to buy 10 ticket(s): [(6;9)(6;10)(6;11)(6;12)(6;13)(6;14)(6;15)(6;16)(6;17)(6;18)] - failed to make a purchase
+Current hall:
+[OOOOOOOOR***********]
+[******RRR***********]
+[********************]
+[**RRRROOOOOOOOOOOOOO]
+[O***********OOOO***O]
+[OOOOOOOOOOOO********]
+[********************]
+[**OOOOO*******OOOOOO]
+[OO***OROOOOOOOOOOO**]
+[******OOOOOOOOOOOOOO]
+Seat bought: 112.
+Сorrect execution.
+Thread-1: want to buy 6 ticket(s): [(1;7)(1;8)(3;2)(3;3)(3;4)(3;5)] - successful purchase
+Thread-0: want to buy 6 ticket(s): [(0;8)(1;6)(1;7)(1;8)(3;2)(3;3)] - failed to make a purchase
+Thread-4: want to buy 1 ticket(s): [(8;6)] - successful purchase
+Thread-2: want to buy 8 ticket(s): [(8;15)(8;16)(8;17)(9;6)(9;7)(9;8)(9;9)(9;10)] - successful purchase
+Thread-3: want to buy 7 ticket(s): [(3;6)(3;7)(3;8)(3;9)(3;10)(3;11)(3;12)] - successful purchase
+Thread-0: want to buy 8 ticket(s): [(9;10)(9;11)(9;12)(9;13)(9;14)(9;15)(9;16)(9;17)] - failed to make a purchase
+Current hall:
+[OOOOOOOOR***********]
+[******R*************]
+[********************]
+[*************OOOOOOO]
+[O***********OOOO***O]
+[OOOOOOOOOOOO********]
+[********************]
+[**RRRRR*******RRROOO]
+[OO***O*OOOOOOOO*****]
+[***********RRRRRROOO]
+Seat bought: 134.
+Сorrect execution.
+Thread-0: want to buy 8 ticket(s): [(7;2)(7;3)(7;4)(7;5)(7;6)(7;14)(7;15)(7;16)] - successful purchase
+Current hall:
+[OOOOOOOOR***********]
+[******R*************]
+[********************]
+[*************RRRRRRR]
+[O***********ROOO***O]
+[OOOOOOOOOOOO********]
+[********************]
+[*****************RRR]
+[RR***R*OOOOOOOO*****]
+[***********RRRRRROOO]
+Seat bought: 142.
+Сorrect execution.
+Thread-1: want to buy 2 ticket(s): [(8;0)(8;1)] - successful purchase
+Thread-4: want to buy 7 ticket(s): [(3;13)(3;14)(3;15)(3;16)(3;17)(3;18)(3;19)] - successful purchase
+Thread-2: want to buy 1 ticket(s): [(4;12)] - successful purchase
+Thread-0: want to buy 3 ticket(s): [(7;17)(7;18)(7;19)] - successful purchase
+Thread-3: want to buy 6 ticket(s): [(7;17)(7;18)(7;19)(8;0)(8;1)(8;5)] - failed to make a purchase
+Current hall:
+[OOOOOOOOR***********]
+[******R*************]
+[********************]
+[********************]
+[O************OOO***O]
+[OOOOOOOOOOOO********]
+[********************]
+[********************]
+[*****O*OOOOOOOO*****]
+[***********RRRRRRRRO]
+Seat bought: 155.
+Сorrect execution.
+Thread-3: want to buy 1 ticket(s): [(1;6)] - successful purchase
+Thread-1: want to buy 8 ticket(s): [(9;11)(9;12)(9;13)(9;14)(9;15)(9;16)(9;17)(9;18)] - successful purchase
+Thread-4: want to buy 4 ticket(s): [(1;6)(4;0)(4;13)(4;14)] - failed to make a purchase
+Thread-0: want to buy 7 ticket(s): [(8;5)(8;7)(8;8)(8;9)(8;10)(8;11)(8;12)] - successful purchase
+Thread-2: want to buy 7 ticket(s): [(4;13)(4;14)(4;15)(4;19)(5;0)(5;1)(5;2)] - successful purchase
+Current hall:
+[ROOOOOOOR***********]
+[********************]
+[********************]
+[********************]
+[R*******************]
+[***OOOOOOOOO********]
+[********************]
+[********************]
+[*************OO*****]
+[*******************R]
+Seat bought: 178.
+Сorrect execution.
+Thread-4: want to buy 2 ticket(s): [(9;19)(0;0)] - successful purchase
+Thread-3: want to buy 8 ticket(s): [(4;0)(5;3)(5;4)(5;5)(5;6)(5;7)(5;8)(5;9)] - successful purchase
+Current hall:
+[*RRORRRRR***********]
+[********************]
+[********************]
+[********************]
+[********************]
+[**********RR********]
+[********************]
+[********************]
+[*************RR*****]
+[********************]
+Seat bought: 188.
+Сorrect execution.
+Thread-1: want to buy 7 ticket(s): [(0;4)(0;5)(0;6)(0;7)(0;8)(4;0)(5;3)] - failed to make a purchase
+Thread-4: want to buy 4 ticket(s): [(8;13)(8;14)(0;1)(0;2)] - successful purchase
+Thread-0: want to buy 7 ticket(s): [(8;13)(8;14)(0;1)(0;2)(0;3)(0;4)(0;5)] - failed to make a purchase
+Thread-2: want to buy 5 ticket(s): [(5;10)(5;11)(8;13)(8;14)(0;1)] - failed to make a purchase
+Thread-1: want to buy 4 ticket(s): [(5;10)(5;11)(8;13)(8;14)] - failed to make a purchase
+Thread-2: want to buy 6 ticket(s): [(0;3)(0;4)(0;5)(0;6)(0;7)(0;8)] - successful purchase
+Thread-0: want to buy 2 ticket(s): [(0;3)(0;4)] - failed to make a purchase
+Current hall:
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[**********RR********]
+[********************]
+[********************]
+[********************]
+[********************]
+Seat bought: 198.
+Сorrect execution.
+Thread-1: want to buy 8 ticket(s): [(5;10)(5;11)(0;3)(0;4)(0;5)(0;6)(0;7)(0;8)] - failed to make a purchase
+Thread-3: want to buy 5 ticket(s): [(0;3)(0;4)(0;5)(0;6)(0;7)] - failed to make a purchase
+Thread-1: want to buy 2 ticket(s): [(5;10)(5;11)] - successful purchase
+Thread-0: want to buy 1 ticket(s): [(5;10)] - failed to make a purchase
+Thread-3: want to buy 1 ticket(s): [(5;10)] - failed to make a purchase
+Thread-4: want to buy 1 ticket(s): [(5;10)] - failed to make a purchase
+Current hall:
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+[********************]
+Seat bought: 200.
+Сorrect execution.
+Size: 200; Sold: 200
