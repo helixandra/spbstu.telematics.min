@@ -1,0 +1,53 @@
+EXPERIMENT 1
+Matrix size = 500
+Results:
+For 1 thread: 114 milliseconds
+For 2 threads: 80 milliseconds
+For 4 threads: 19 milliseconds
+For 6 threads: 11 milliseconds
+For 8 threads: 11 milliseconds
+
+EXPERIMENT 2
+Matrix size = 1000
+Results:
+For 1 thread: 714 milliseconds
+For 2 threads: 184 milliseconds
+For 4 threads: 129 milliseconds
+For 8 threads: 69 milliseconds
+For 10 threads: 55 milliseconds
+
+EXPERIMENT 3
+Matrix size = 2000
+Results:
+For 1 thread: 4964 milliseconds
+For 2 threads: 2214 milliseconds
+For 10 threads: 1835 milliseconds
+For 20 threads: 913 milliseconds
+For 50 threads: 424 milliseconds
+
+EXPERIMENT 1
+Matrix size = 500
+Results:
+For 1 thread: 72 milliseconds
+For 2 threads: 13 milliseconds
+For 4 threads: 8 milliseconds
+For 6 threads: 7 milliseconds
+For 8 threads: 6 milliseconds
+
+EXPERIMENT 2
+Matrix size = 1000
+Results:
+For 1 thread: 584 milliseconds
+For 2 threads: 99 milliseconds
+For 4 threads: 81 milliseconds
+For 8 threads: 56 milliseconds
+For 10 threads: 52 milliseconds
+
+EXPERIMENT 3
+Matrix size = 2000
+Results:
+For 1 thread: 5222 milliseconds
+For 2 threads: 2084 milliseconds
+For 10 threads: 2204 milliseconds
+For 20 threads: 976 milliseconds
+For 50 threads: 457 milliseconds
