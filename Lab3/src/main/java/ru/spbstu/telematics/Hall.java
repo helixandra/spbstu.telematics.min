@@ -21,7 +21,19 @@ public class Hall {
         }
     }
 
-    boolean isAvailable(int i, int j) {
+
+    boolean isAvailableForReserve(int i, int j) {
+        Seat status;
+        try {
+            status = hallSeats[i][j];
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+        return status.equals(Seat.Available) /*|| status.equals(Seat.Reserved)*/;
+    }
+
+    boolean isAvailableForBuy(int i, int j) {
         Seat status;
         try {
             status = hallSeats[i][j];
@@ -49,7 +61,7 @@ public class Hall {
     }
     void freeSeat(int i, int j) {
         try {
-            if (hallSeats[i][j] == Seat.Reserved) hallSeats[i][j] = Seat.Available;
+            /*if (hallSeats[i][j] == Seat.Reserved)*/ hallSeats[i][j] = Seat.Available;
         }
         catch (ArrayIndexOutOfBoundsException ignored) {
         }
@@ -67,7 +79,7 @@ public class Hall {
         int count = 0;
         for(Seat[] row: hallSeats)
             for(Seat s: row)
-                if(s.equals(Seat.Available)|| s.equals(Seat.Reserved))
+                if(s.equals(Seat.Available)/*|| s.equals(Seat.Reserved)*/)
                     count ++;
         return count;
     }

@@ -29,8 +29,6 @@ public class Buyer implements Runnable {
             int j = r.nextInt(h.getWidth());
             boolean bought = false;
 
-            Pair<Integer, Integer>[] selectedSeats = new Pair[count];
-            Arrays.fill(selectedSeats, new Pair(0,0));
             for (int c = count; c > 0; --c){
                 while(bought || !cashier.checkSeat(i, j)) {
                     j++;
@@ -42,29 +40,34 @@ public class Buyer implements Runnable {
                 }
                 cashier.select(i, j);
                 bought = true;
-                selectedSeats[count-c].setKey(i);
-                selectedSeats[count-c].setValue(j);
                 str.append("(").append(i).append(";").append(j).append(")");
             }
             str.append("]");
+            long reserveTime = System.currentTimeMillis() + 100;
             try {
-                Thread.sleep(r.nextInt(50) + 50);
+                Thread.sleep(r.nextInt(150) + 50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            boolean res = cashier.tryToBuy();
-            if (res) {
-                System.out.println(str.append(" - successful purchase").toString());
-                ticketsBought += count;
-                try {
-                    Thread.sleep(r.nextInt(100) + 100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            if (System.currentTimeMillis() < reserveTime){
+                boolean res = cashier.tryToBuy();
+                if (res) {
+                    System.out.println(str.append(" - successful purchase").toString());
+                    ticketsBought += count;
+                }
+                else {
+                    cashier.cancelReserve();
+                    System.out.println(str.append(" - failed to make a purchase").toString());
                 }
             }
             else {
-                cashier.cancelReserve(selectedSeats);
-                System.out.println(str.append(" - failed to make a purchase").toString());
+                cashier.cancelReserve();
+                System.out.println(str.append(" - reserve time is up!").toString());
+            }
+            try {
+                Thread.sleep(r.nextInt(100) + 100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }

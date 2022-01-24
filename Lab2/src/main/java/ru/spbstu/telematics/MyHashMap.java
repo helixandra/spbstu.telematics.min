@@ -52,24 +52,24 @@ public class MyHashMap<K,V> {
         table = new Entry[DEFAULT_CAPACITY];
     }
 
-    public MyHashMap(int init_capacity, float init_loadFactor) {
-        if (init_capacity < 0)
-            throw new IllegalArgumentException("Illegal initial capacity: " + init_capacity);
-        if (init_capacity > MAX_CAPACITY) init_capacity = MAX_CAPACITY;
-        if (init_loadFactor <= 0)
-            throw new IllegalArgumentException("Illegal initial load factor: " + init_loadFactor);
+    public MyHashMap(int capacity, float loadFactor) {
+        if (capacity < 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " + capacity);
+        if (capacity > MAX_CAPACITY) capacity = MAX_CAPACITY;
+        if (loadFactor <= 0)
+            throw new IllegalArgumentException("Illegal initial load factor: " + loadFactor);
 
-        int capacity = 1;
-        while (capacity < init_capacity)
-            capacity <<= 1;
+        int binCapacity = 1;
+        while (binCapacity < capacity)
+            binCapacity <<= 1;
 
-        this.loadFactor = init_loadFactor;
-        this.threshold = (int) (capacity * init_loadFactor);
-        table = new Entry[capacity];
+        this.loadFactor = loadFactor;
+        this.threshold = (int) (binCapacity * loadFactor);
+        table = new Entry[binCapacity];
     }
 
-    public MyHashMap(int init_capacity) {
-        this(init_capacity, DEFAULT_LOAD_FACTOR);
+    public MyHashMap(int capacity) {
+        this(capacity, DEFAULT_LOAD_FACTOR);
     }
 
 
@@ -105,7 +105,7 @@ public class MyHashMap<K,V> {
     private void putEntry(int hash, K key, V value, int index) {
         Entry<K, V> e = table[index]; // save to make it next entry
         table[index] = new Entry<K, V>(hash, key, value, e);
-        if (size++ >= threshold)
+        if (++size >= threshold)
             resize(2 * table.length);
     }
 
@@ -177,8 +177,12 @@ public class MyHashMap<K,V> {
 
 
     public int size() {
-        return size;
+        return this.size;
     }
+
+    public int getCapacity(){ return this.table.length; }
+
+
 
     public V remove(Object key) {
         if (size == 0) return null;
@@ -244,7 +248,7 @@ public class MyHashMap<K,V> {
         return e;
     }
 
-    
+
     private abstract class HashIterator<E> implements Iterator<E> {
         Entry<K, V> next;
         int index;

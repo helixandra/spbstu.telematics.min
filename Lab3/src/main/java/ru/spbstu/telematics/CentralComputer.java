@@ -51,7 +51,7 @@ public class CentralComputer {
             canBuy = true;
             if (stateIndex != currentState) {  // если состояние зала изменилось, проверяем доступность мест
                 for (Pair<Integer, Integer> seat : seats) {
-                    if (!hall.isAvailable(seat.getKey(), seat.getValue())) {
+                    if (!hall.isAvailableForBuy(seat.getKey(), seat.getValue())) {
                         canBuy = false;
                         break;
                     }

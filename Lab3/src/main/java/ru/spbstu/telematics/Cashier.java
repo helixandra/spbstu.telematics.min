@@ -44,14 +44,14 @@ public class Cashier {
             if (loadHall())
                 return false;
         }
-        return hall.isAvailable(i, j);
+        return hall.isAvailableForReserve(i, j);
     }
 
     public boolean select(int i, int j) {
         if (hall == null)
             if (loadHall())
                 return false;
-        if (hall.isAvailable(i, j)) {
+        if (hall.isAvailableForReserve(i, j)) {
             toBuy.add(new Pair<Integer, Integer>(i, j));
             hall.setReserved(i, j);
             return true;
@@ -59,11 +59,11 @@ public class Cashier {
         return false;
     }
 
-    public boolean cancelReserve(Pair<Integer, Integer>[] selectedSeats) {
+    public boolean cancelReserve() {
         if (hall == null)
             if (loadHall())
                 return false;
-        for (Pair<Integer, Integer> seat: selectedSeats) {
+        for (Pair<Integer, Integer> seat: toBuy) {
             hall.freeSeat(seat.getKey(), seat.getValue());
         }
         return false;
