@@ -7,7 +7,7 @@ public class App
 {
     public static void main( String[] args ) throws InterruptedException {
         int nCashiers = 5;
-        int width = 10;
+        int width = 20;
         int height = 10;
         final CentralComputer computer = new CentralComputer(width, height, nCashiers);
         List<Buyer> buyerList = new ArrayList<Buyer>();
@@ -24,7 +24,7 @@ public class App
                 while (!computer.soldOut()) {
                     computer.checkHall();
                     try {
-                        Thread.sleep(150);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

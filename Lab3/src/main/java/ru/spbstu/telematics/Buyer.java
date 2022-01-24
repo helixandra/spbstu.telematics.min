@@ -11,9 +11,14 @@ public class Buyer implements Runnable {
         cashier = c;
     }
 
+    private Random r = new Random();
+    public boolean getRandomBoolean(float p){
+        return r.nextFloat() < p;
+    }
+
     public void run() {
         Hall h = cashier.getHall();
-        Random r = new Random();
+        //Random r = new Random();
         if (h == null)
             return;
         int freeSeats = h.freeSeats();
@@ -43,21 +48,26 @@ public class Buyer implements Runnable {
                 str.append("(").append(i).append(";").append(j).append(")");
             }
             str.append("]");
-            long reserveTime = System.currentTimeMillis() + 100;
+            long reserveTime = System.currentTimeMillis() + 120;
             try {
-                Thread.sleep(r.nextInt(150) + 50);
+                Thread.sleep(r.nextInt(120) + 50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             if (System.currentTimeMillis() < reserveTime){
-                boolean res = cashier.tryToBuy();
-                if (res) {
-                    System.out.println(str.append(" - successful purchase").toString());
-                    ticketsBought += count;
+                if (getRandomBoolean(0.75f)) {
+                    boolean res = cashier.tryToBuy();
+                    if (res) {
+                        System.out.println(str.append(" - successful purchase").toString());
+                        ticketsBought += count;
+                    } else {
+                        cashier.cancelReserve();
+                        System.out.println(str.append(" - failed to make a purchase").toString());
+                    }
                 }
-                else {
+                else{
                     cashier.cancelReserve();
-                    System.out.println(str.append(" - failed to make a purchase").toString());
+                    System.out.println(str.append(" - refusal to purchase").toString());
                 }
             }
             else {

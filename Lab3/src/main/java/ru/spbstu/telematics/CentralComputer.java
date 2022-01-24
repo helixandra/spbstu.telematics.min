@@ -49,14 +49,14 @@ public class CentralComputer {
         lock.lock(); // блокируем
         try {
             canBuy = true;
-            if (stateIndex != currentState) {  // если состояние зала изменилось, проверяем доступность мест
+            //if (stateIndex != currentState) {  // если состояние зала изменилось, проверяем доступность мест
                 for (Pair<Integer, Integer> seat : seats) {
                     if (!hall.isAvailableForBuy(seat.getKey(), seat.getValue())) {
                         canBuy = false;
                         break;
                     }
                 }
-            }
+            //}
             if (canBuy) { // если можно осуществить покупку, осуществляем - помечаем купленные места
                 for (Pair<Integer, Integer> seat : seats) {
                     hall.setSeat(seat.getKey(), seat.getValue());
