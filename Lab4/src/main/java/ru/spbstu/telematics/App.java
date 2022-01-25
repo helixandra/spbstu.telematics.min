@@ -64,6 +64,35 @@ public class App
         return b;
     }
 
+    public static void speedTests(){
+        int nTimes = 10;
+        int nThreads = 50;
+        int size = 1150;
+        long time;
+        final LinearEquation solver = new LinearEquation();
+
+
+
+        for (int threads = 1; threads <= nThreads; ++threads){
+            double[][] values = createA(size);
+            double[] freeTerms = createB(size);
+
+            double totalTime = 0;
+            for (int i = 0; i < nTimes; ++i){
+                double[][] valuesCopy = myCopy(values);
+                double[] freeTermsCopy = Arrays.copyOf(freeTerms, freeTerms.length);
+                double[] result;
+
+                time = System.currentTimeMillis();
+                result = solver.solveParallel(valuesCopy, freeTermsCopy, threads);
+                totalTime += System.currentTimeMillis() - time;
+            }
+            System.out.println("Threads: " + threads + "\t Average time: " + totalTime/nTimes + " milliseconds");
+
+        }
+    }
+
+
     public static void experiments(){
         final LinearEquation solver = new LinearEquation();
         long time;
@@ -96,6 +125,7 @@ public class App
                     System.out.println(e.getMessage());
                 }
 
+
                 time = System.currentTimeMillis();
                 result = solver.solveParallel(values1, freeTerms1, nThreads[i][0]);
                 System.out.println("For " + nThreads[i][0] + " threads: " + (System.currentTimeMillis() - time) + " milliseconds");
@@ -117,6 +147,6 @@ public class App
 
     public static void main( String[] args )
     {
-        experiments();
+        speedTests();
     }
 }
