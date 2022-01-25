@@ -43,6 +43,19 @@ public class CentralComputer {
         return new Pair<Hall, Integer>(res, index);
     }
 
+    void cancelReserve(Set<Pair<Integer, Integer>> seats){
+        Lock lock = hallLock.writeLock();
+        lock.lock();
+        try {
+            for (Pair<Integer, Integer> seat : seats) {
+                hall.freeSeat(seat.getKey(), seat.getValue());
+            }
+        }
+        finally{
+            lock.unlock();
+        }
+    }
+
     boolean buy(Set<Pair<Integer, Integer>> seats, int stateIndex) {  // попытка покупки билетов
         Lock lock = hallLock.writeLock();
         boolean canBuy;
@@ -68,6 +81,30 @@ public class CentralComputer {
             lock.unlock();
         }
         return canBuy;
+    }
+
+
+    boolean reserve(Set<Pair<Integer, Integer>> seats, int stateIndex) {  // попытка резерва билетов
+        Lock lock = hallLock.writeLock();
+        boolean canReserve;
+        lock.lock();
+        try {
+            canReserve = true;
+            for (Pair<Integer, Integer> seat : seats) {
+                if (!hall.isAvailableForReserve(seat.getKey(), seat.getValue())) {
+                    canReserve = false;
+                    break;
+                }
+            }
+            if (canReserve) {
+                for (Pair<Integer, Integer> seat : seats) {
+                    hall.setReserved(seat.getKey(), seat.getValue());
+                }
+            }
+        } finally {
+            lock.unlock();
+        }
+        return canReserve;
     }
 
     public Cashier[] getСashiers() {

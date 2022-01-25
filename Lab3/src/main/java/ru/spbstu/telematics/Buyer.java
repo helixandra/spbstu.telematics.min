@@ -48,32 +48,30 @@ public class Buyer implements Runnable {
                 str.append("(").append(i).append(";").append(j).append(")");
             }
             str.append("]");
-            long reserveTime = System.currentTimeMillis() + 120;
-            try {
-                Thread.sleep(r.nextInt(120) + 50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if (System.currentTimeMillis() < reserveTime){
-                if (getRandomBoolean(0.75f)) {
-                    boolean res = cashier.tryToBuy();
-                    if (res) {
-                        System.out.println(str.append(" - successful purchase").toString());
-                        ticketsBought += count;
-                    } else {
-                        cashier.cancelReserve();
-                        System.out.println(str.append(" - failed to make a purchase").toString());
+            boolean reserve = cashier.tryToReserve();
+            boolean cancRes = true;
+            if (reserve){
+                long reserveTime = System.currentTimeMillis() + 120;
+                try {
+                    Thread.sleep(r.nextInt(120) + 50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (System.currentTimeMillis() < reserveTime){
+                    if (getRandomBoolean(0.75f)) {
+                        boolean res = cashier.tryToBuy();
+                        if (res) {
+                            System.out.println(str.append(" - successful purchase").toString());
+                            ticketsBought += count;
+                            cancRes = false;
+                        } else { System.out.println(str.append(" - failed to make a purchase").toString()); }
                     }
+                    else{ System.out.println(str.append(" - refusal to purchase").toString()); }
                 }
-                else{
-                    cashier.cancelReserve();
-                    System.out.println(str.append(" - refusal to purchase").toString());
-                }
+                else { System.out.println(str.append(" - reserve time is up!").toString()); }
             }
-            else {
-                cashier.cancelReserve();
-                System.out.println(str.append(" - reserve time is up!").toString());
-            }
+            else{ System.out.println(str.append(" - failed to reserve").toString()); }
+            if (cancRes) cashier.cancelReserve();
             try {
                 Thread.sleep(r.nextInt(100) + 100);
             } catch (InterruptedException e) {

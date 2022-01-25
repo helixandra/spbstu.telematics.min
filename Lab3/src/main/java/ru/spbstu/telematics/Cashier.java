@@ -4,12 +4,16 @@ package ru.spbstu.telematics;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Cashier {
     CentralComputer computer;  // концерт, на который продаются билеты
     int stateIndex; // текущее состояние концертного зала
     Hall hall; // концертный зал - состояние мест зала
     Set<Pair<Integer, Integer>> toBuy; // билеты, которые хочет приобрести покупатель
+    ReadWriteLock hallLock = new ReentrantReadWriteLock();
 
     Cashier(CentralComputer c) {
         computer = c;
@@ -25,8 +29,7 @@ public class Cashier {
             stateIndex = p.getValue();
             toBuy.clear();
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
@@ -39,40 +42,43 @@ public class Cashier {
         return hall.toString();
     }
 
-    public boolean checkSeat(int i, int j ) {
-        if (hall == null ) {
+    public boolean checkSeat(int i, int j) {
+        if (hall == null) {
             if (loadHall())
                 return false;
         }
         return hall.isAvailableForReserve(i, j);
     }
 
+
     public boolean select(int i, int j) {
         if (hall == null)
             if (loadHall())
                 return false;
-        if (hall.isAvailableForReserve(i, j)) {
-            toBuy.add(new Pair<Integer, Integer>(i, j));
-            hall.setReserved(i, j);
-            return true;
-        }
-        return false;
+        toBuy.add(new Pair<Integer, Integer>(i, j));
+        return true;
     }
+
 
     public boolean cancelReserve() {
         if (hall == null)
             if (loadHall())
                 return false;
-        for (Pair<Integer, Integer> seat: toBuy) {
-            hall.freeSeat(seat.getKey(), seat.getValue());
-        }
-        return false;
+        computer.cancelReserve(toBuy);
+        return true;
     }
 
     public boolean tryToBuy() {
         if (computer == null)
             return false;
         boolean res = computer.buy(toBuy, stateIndex);
+        return res;
+    }
+
+    public boolean tryToReserve() {
+        if (computer == null)
+            return false;
+        boolean res = computer.reserve(toBuy, stateIndex);
         return res;
     }
 
